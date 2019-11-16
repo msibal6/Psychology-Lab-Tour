@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{1E57A911-4AC3-4FC4-A127-EE2BBEC6BDF7}</ProjectGuid>
+    <ProjectGuid>{15363278-2607-943C-B5A8-133CDF32AB20}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -65,31 +65,31 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology Tour/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>/Applications/2019.2.1f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

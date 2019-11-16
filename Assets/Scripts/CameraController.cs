@@ -52,8 +52,11 @@ public class CameraController : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
-            Debug.Log("Hit the sphere");
-            Debug.Log(hit.transform);
+            if (hit.distance < 10f)
+            { 
+                Debug.Log("Hit the sphere");
+                Debug.Log(hit.transform);
+            }
         }
 
 
