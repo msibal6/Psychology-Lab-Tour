@@ -15,6 +15,8 @@ public class CameraController : MonoBehaviour
     private float yaw;
     private float pitch;
 
+    private float maxIntDist = 2.5f;
+
     private float maxVertical = 30f;
     private float maxHorizontal = 30f;
     private Camera cam;
@@ -32,6 +34,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         yaw += horizontalPan * Input.GetAxis("Mouse X");
         pitch -= verticaPan * Input.GetAxis("Mouse Y");
 
@@ -47,18 +50,34 @@ public class CameraController : MonoBehaviour
     void FixedUpdate()
     {
         RaycastHit hit;
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        //Ray ray = cam.ScreenPointToRay(transform.TransformDirection(Vector3.forward));
 
+        Ray ray = new Ray(transform.position, Vector3.forward);
 
         if (Physics.Raycast(ray, out hit))
         {
-            if (hit.distance < 10f)
-            { 
-                Debug.Log("Hit the sphere");
-                Debug.Log(hit.transform);
+            if (hit.distance < maxIntDist)
+            {
+                
+                //Debug.Log("Hit the sphere");
+                //Debug.Log(hit.transform);
             }
         }
+        
 
 
+
+
+
+    }
+
+    void OnDrawGizmos()
+    {
+        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = new Ray(transform.position, Vector3.forward);
+
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(ray);
     }
 }
