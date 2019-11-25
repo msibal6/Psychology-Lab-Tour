@@ -58,9 +58,9 @@ public class CameraController : MonoBehaviour
         {
             if (hit.distance < maxIntDist)
             {
-                
-                //Debug.Log("Hit the sphere");
-                //Debug.Log(hit.transform);
+
+                Debug.Log("Hit the sphere");
+                Debug.Log(hit.transform);
             }
         }
         
