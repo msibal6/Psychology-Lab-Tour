@@ -36,3 +36,4 @@
 *.ide filter=lfs diff=lfs merge=lfs -text
 *.ide-shm filter=lfs diff=lfs merge=lfs -text
 *.ide-wal filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
