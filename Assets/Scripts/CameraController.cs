@@ -8,10 +8,11 @@ public class CameraController : MonoBehaviour
      *
      */
 
+    public Transform holdPoint;
     public float horizontalPan = 2.5f;
     public float verticaPan = 2.5f;
     public float moveSpeed = 2.0f; 
-
+    
     private float yaw;
     private float pitch;
 
@@ -20,6 +21,9 @@ public class CameraController : MonoBehaviour
     private float maxVertical = 30f;
     private float maxHorizontal = 30f;
     private Camera cam;
+
+    private bool grabbing = false;
+
 
 
 
@@ -42,8 +46,7 @@ public class CameraController : MonoBehaviour
         transform.position += moveSpeed * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         transform.eulerAngles = new Vector3(Mathf.Clamp(pitch,-maxVertical,maxVertical), Mathf.Clamp(yaw,-maxHorizontal,maxHorizontal));
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward) * 10;
-        Debug.DrawRay(transform.position, forward, Color.green);
+        Debug.DrawRay(transform.position, cam.transform.forward, Color.green);
 
     }
 
@@ -52,18 +55,38 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         //Ray ray = cam.ScreenPointToRay(transform.TransformDirection(Vector3.forward));
 
-        Ray ray = new Ray(transform.position, Vector3.forward);
+        Ray ray = new Ray(transform.position, cam.transform.forward);
 
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.distance < maxIntDist)
             {
+                Debug.Log("can Grab");
+                if (Input.GetMouseButtonDown(0))
+                {
+                    if (!grabbing)
+                    {
+                        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "canGrab") grabbing = true;
+                    }
+                    else
+                    {
+                        grabbing = false;
 
-                Debug.Log("Hit the sphere");
-                Debug.Log(hit.transform);
+                    }
+                }
+
             }
         }
-        
+
+
+
+
+
+        if (grabbing)
+        {
+            hit.collider.transform.position = holdPoint.transform.position;
+        }
+
 
 
 
