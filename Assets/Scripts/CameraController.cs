@@ -16,13 +16,14 @@ public class CameraController : MonoBehaviour
     private float yaw;
     private float pitch;
 
-    private float maxIntDist = 2.5f;
+    private float maxInteractionDistance = 2.5f;
 
     private float maxVertical = 30f;
     private float maxHorizontal = 30f;
     private Camera cam;
 
-    private bool grabbing = false;
+    private bool grabbing;
+    private Collider heldOject;
 
 
 
@@ -52,41 +53,39 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-        RaycastHit hit;
-        //Ray ray = cam.ScreenPointToRay(transform.TransformDirection(Vector3.forward));
 
+        RaycastHit hit;
         Ray ray = new Ray(transform.position, cam.transform.forward);
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (hit.distance < maxIntDist)
-            {
-                Debug.Log("can Grab");
-                if (Input.GetMouseButtonDown(0))
-                {
-                    if (!grabbing)
-                    {
-                        if (Physics.Raycast(ray, out hit) && hit.collider.gameObject.tag == "canGrab") grabbing = true;
-                    }
-                    else
-                    {
-                        grabbing = false;
+        // Looking to determine if there is something to grab
+        Physics.Raycast(ray, out hit, maxInteractionDistance);
 
-                    }
+        // You try to grab here
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Nothing in your had
+            if (!grabbing)
+            {
+                if (hit.collider != null && hit.collider.gameObject.CompareTag("canGrab"))
+                {
+                    heldOject = hit.collider;
+                    grabbing = true;
                 }
+            // You already have in something in your hand
+            //  TO DO
+            // Need to account for when you want to something the held object 
+            } else {
+                grabbing = false;
 
             }
+
         }
-
-
-
-
 
         if (grabbing)
         {
-            hit.collider.transform.position = holdPoint.transform.position;
+            heldOject.transform.position = holdPoint.transform.position;
+            
         }
-
 
 
 
@@ -97,10 +96,11 @@ public class CameraController : MonoBehaviour
     void OnDrawGizmos()
     {
         //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Ray ray = new Ray(transform.position, Vector3.forward);
+        Ray ray = new Ray(transform.position, cam.transform.forward);
 
         // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.red;
+        Gizmos.color = Color.green;
         Gizmos.DrawRay(ray);
+        Gizmos.DrawRay(transform.position, cam.transform.forward * 100);
     }
 }
