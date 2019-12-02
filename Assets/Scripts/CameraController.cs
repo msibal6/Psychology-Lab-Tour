@@ -57,7 +57,8 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, cam.transform.forward);
 
-        // Looking to determine if there is something to grab
+        // Looking to determine if there is something to interact with
+        // 
         Physics.Raycast(ray, out hit, maxInteractionDistance);
 
         // You try to grab here
@@ -73,18 +74,16 @@ public class CameraController : MonoBehaviour
                 }
             // You already have in something in your hand
             //  TO DO
-            // Need to account for when you want to something the held object 
+            // Need to account for when you want to do something with  held object i.e put in the microscope
             } else {
                 grabbing = false;
-
             }
 
         }
 
         if (grabbing)
         {
-            heldOject.transform.position = holdPoint.transform.position;
-            
+            heldOject.transform.position = holdPoint.transform.position; 
         }
 
 
