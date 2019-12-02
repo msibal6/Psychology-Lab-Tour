@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     private Collider heldOject;
 
 
-
+    
 
 
 
@@ -34,6 +34,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -83,7 +84,7 @@ public class CameraController : MonoBehaviour
 
         if (grabbing)
         {
-            heldOject.transform.position = holdPoint.transform.position; 
+            heldOject.transform.position = Vector3.MoveTowards(heldOject.transform.position, holdPoint.transform.position, .05f);
         }
 
 
