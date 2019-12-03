@@ -65,14 +65,13 @@ public class CameraController : MonoBehaviour
         // You try to grab here
         if (Input.GetMouseButtonDown(0))
         {
-            // Nothing in your had
-            if (!grabbing)
+            // Nothing in your hang and you are looking at something you can grab
+            if (!grabbing && hit.collider.gameObject.CompareTag("canGrab"))
             {
-                if (hit.collider != null && hit.collider.gameObject.CompareTag("canGrab"))
-                {
+                
                     heldOject = hit.collider;
                     grabbing = true;
-                }
+                
             // You already have in something in your hand
             //  TO DO
             // Need to account for when you want to do something with  held object i.e put in the microscope
@@ -84,7 +83,10 @@ public class CameraController : MonoBehaviour
 
         if (grabbing)
         {
-            heldOject.transform.position = Vector3.MoveTowards(heldOject.transform.position, holdPoint.transform.position, .05f);
+            bool isMoving = System.Math.Abs(Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Vertical")) > 0;
+
+                
+            heldOject.transform.position = Vector3.MoveTowards(heldOject.transform.position, holdPoint.transform.position, isMoving ? .08f : 0.05f);
         }
 
 
