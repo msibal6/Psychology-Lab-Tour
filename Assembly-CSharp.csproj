@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\MicroscopeController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/mitchellsibal/Documents/CODE/Psychology-Lab-Tour/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

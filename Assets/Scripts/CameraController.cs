@@ -20,10 +20,13 @@ public class CameraController : MonoBehaviour
 
     private float maxVertical = 30f;
     private float maxHorizontal = 30f;
-    private Camera cam;
 
     private bool grabbing;
     private Collider heldOject;
+
+    private GameObject microscope = GameObject.Find("Microscope");
+
+
 
 
     
@@ -33,7 +36,6 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -43,49 +45,57 @@ public class CameraController : MonoBehaviour
         
         yaw += horizontalPan * Input.GetAxis("Mouse X");
         pitch -= verticaPan * Input.GetAxis("Mouse Y");
-
-
         transform.position += moveSpeed * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         transform.eulerAngles = new Vector3(Mathf.Clamp(pitch,-maxVertical,maxVertical), Mathf.Clamp(yaw,-maxHorizontal,maxHorizontal));
-
-        Debug.DrawRay(transform.position, cam.transform.forward, Color.green);
-
     }
 
     void FixedUpdate()
     {
 
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, cam.transform.forward);
+        Ray ray = new Ray(transform.position, transform.forward);
 
-        // Looking to determine if there is something to interact with
-        // 
+        // Looking to determine if there is something to interact with  
         Physics.Raycast(ray, out hit, maxInteractionDistance);
+
 
         // You try to grab here
         if (Input.GetMouseButtonDown(0))
         {
-            // Nothing in your hang and you are looking at something you can grab
-            if (!grabbing && hit.collider.gameObject.CompareTag("canGrab"))
+            // Nothing in your hand and you are looking at something you can grab
+            // TODO Add all grabbin cases i.e grabbing and you want to switch with something and etc
+
+            if (!grabbing && hit.collider != null && hit.collider.gameObject.layer == 8)
             {
-                
-                    heldOject = hit.collider;
-                    grabbing = true;
-                
-            // You already have in something in your hand
-            //  TO DO
-            // Need to account for when you want to do something with  held object i.e put in the microscope
-            } else {
+
+                heldOject = hit.collider;
+                Debug.Log(heldOject.gameObject.name);
+                grabbing = true;
+
+                // You already have in something in your hand
+                //  TO DO
+                // Need to account for when you want to do something with  held object i.e put in the microscope
+            }
+
+            // Inserting Slide Bed if we are grabbing it
+            else if (heldOject.gameObject.tag == "Slide" && hit.collider != null  && hit.collider.gameObject.name == "Slide Bed")
+            {
+                Debug.Log("touching slide Bed");
+
+            } 
+            else
+            {
                 grabbing = false;
+                heldOject = null;
             }
 
         }
 
+        // Object Tracking for when you are holding it
+        // Goes faster wehn you are moving to prevent jitter
         if (grabbing)
         {
             bool isMoving = System.Math.Abs(Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Vertical")) > 0;
-
-                
             heldOject.transform.position = Vector3.MoveTowards(heldOject.transform.position, holdPoint.transform.position, isMoving ? .08f : 0.05f);
         }
 
@@ -97,12 +107,9 @@ public class CameraController : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Ray ray = new Ray(transform.position, cam.transform.forward);
 
         // Draws a 5 unit long red line in front of the object
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(ray);
-        Gizmos.DrawRay(transform.position, cam.transform.forward * 100);
+        Gizmos.DrawRay(transform.position, transform.forward * 100);
     }
 }
