@@ -6,8 +6,9 @@ public class MicroscopeController : MonoBehaviour
 {
 
 
-    private Collider placedObject;
+    private GameObject placedSlide;
     public Transform placePoint;
+
 
 
     // Start is called before the first frame update
@@ -22,17 +23,28 @@ public class MicroscopeController : MonoBehaviour
         
     }
 
-    void Place(Collider objectToPlace)
+    public void Place(GameObject objectToPlace)
     {
-        placedObject = objectToPlace;
-        placedObject.transform.position = placePoint.position;
-
+        placedSlide = objectToPlace;
+        placedSlide.transform.position = placePoint.position;
+        Debug.Log(placedSlide.name);
     }
 
-    void Release()
+    public void Release()
     {
-        placedObject = null;
-
-
+        placedSlide = null;
+        Debug.Log(placedSlide);
     }
+
+    public bool ContainSlide()
+    {
+        return (placedSlide != null);
+    }
+
+    public string GetSlideName()
+    {
+        return placedSlide.gameObject.name;
+    }
+
+    
 }

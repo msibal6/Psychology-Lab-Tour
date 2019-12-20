@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -16,15 +17,14 @@ public class CameraController : MonoBehaviour
     private float yaw;
     private float pitch;
 
-    private float maxInteractionDistance = 2.5f;
+    public float maxInteractionDistance;
 
-    private float maxVertical = 30f;
-    private float maxHorizontal = 30f;
+    private readonly float maxVertical = 30f;
+    private readonly float maxHorizontal = 30f;
 
     private bool grabbing;
-    private Collider heldOject;
+    private Collider heldObject;
 
-    private GameObject microscope = GameObject.Find("Microscope");
 
 
 
@@ -36,7 +36,14 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //TODO Cursor visibility needs fixing
+
+        //Cursor.visible = true;
+        //Cursor.SetCursor(Texture2D.blackTexture, new Vector2(Screen.width / 2, Screen.height / 2), CursorMode.Auto);
         Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
+
+
     }
 
     // Update is called once per frame
@@ -51,44 +58,72 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.forward);
 
+
         // Looking to determine if there is something to interact with  
-        Physics.Raycast(ray, out hit, maxInteractionDistance);
+        Physics.Raycast(ray, out RaycastHit hit, maxInteractionDistance);
 
 
         // You try to grab here
         if (Input.GetMouseButtonDown(0))
         {
-            // Nothing in your hand and you are looking at something you can grab
             // TODO Add all grabbin cases i.e grabbing and you want to switch with something and etc
 
+            // Nothing in your hand and you're trying to grab something
             if (!grabbing && hit.collider != null && hit.collider.gameObject.layer == 8)
             {
 
-                heldOject = hit.collider;
-                Debug.Log(heldOject.gameObject.name);
+                heldObject = hit.collider;
                 grabbing = true;
 
-                // You already have in something in your hand
-                //  TO DO
-                // Need to account for when you want to do something with  held object i.e put in the microscope
+                // Check if we are grabbing a slide
+
+                if (hit.collider.gameObject.tag == "Slide")
+                {
+                    SlideController tempSlide = hit.collider.gameObject.GetComponent<SlideController>();
+                    // Is the slide in the microscope
+                    if (tempSlide.IsHeld())
+                    {
+                        // Release the slide from the microscope
+                        MicroscopeController tempMicro = tempSlide.GetHolder().GetComponent<MicroscopeController>();
+                        tempMicro.Release();
+                        tempSlide.SetHolder(gameObject);
+                    }
+                }
             }
 
-            // Inserting Slide Bed if we are grabbing it
-            else if (heldOject.gameObject.tag == "Slide" && hit.collider != null  && hit.collider.gameObject.name == "Slide Bed")
+            // Inserting  and releasing Slide Bed if we are grabbing it
+            else if (heldObject != null && heldObject.gameObject.tag == "Slide" && hit.collider != null && hit.collider.gameObject.name == "Slide Bed")
             {
-                Debug.Log("touching slide Bed");
+                MicroscopeController tempMicroscopeController = hit.collider.transform.parent.gameObject.GetComponent<MicroscopeController>();
 
-            } 
+                if (!tempMicroscopeController.ContainSlide())
+                {
+                    tempMicroscopeController.Place(heldObject.gameObject);
+                    heldObject.gameObject.GetComponent<SlideController>().SetHolder(tempMicroscopeController.gameObject);
+                    Release();
+                }
+                else
+                {
+                    // Placeholder for tooltip that tells there is a slide in the microscope
+                    Debug.Log("Theres already A slide in the microscope");
+
+                }
+            }
+            // You are releasing it into nothing i.e dropping it
             else
             {
-                grabbing = false;
-                heldOject = null;
+                Release();
             }
 
+            if (hit.collider.gameObject.name == "Lens")
+            {
+                SceneManager.LoadScene("MicroscopeView");
+
+                Debug.Log("loading scene");
+
+            }
         }
 
         // Object Tracking for when you are holding it
@@ -96,20 +131,23 @@ public class CameraController : MonoBehaviour
         if (grabbing)
         {
             bool isMoving = System.Math.Abs(Input.GetAxisRaw("Horizontal") + Input.GetAxisRaw("Vertical")) > 0;
-            heldOject.transform.position = Vector3.MoveTowards(heldOject.transform.position, holdPoint.transform.position, isMoving ? .08f : 0.05f);
+            heldObject.transform.position = Vector3.MoveTowards(heldObject.transform.position, holdPoint.transform.position, isMoving ? .08f : 0.05f);
+
         }
+    }
 
 
-
-
-
+    private void Release()
+    {
+        grabbing = false;
+        heldObject = null;
     }
 
     void OnDrawGizmos()
     {
-
         // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.green;
+        Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * 100);
     }
+
 }
