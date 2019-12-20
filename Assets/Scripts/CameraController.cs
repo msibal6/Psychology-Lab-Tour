@@ -117,7 +117,7 @@ public class CameraController : MonoBehaviour
                 Release();
             }
 
-            if (hit.collider.gameObject.name == "Lens")
+            if (hit.collider.gameObject.name == "Looking part")
             {
                 SceneManager.LoadScene("MicroscopeView");
 
