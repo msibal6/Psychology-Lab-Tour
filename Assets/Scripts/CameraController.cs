@@ -26,7 +26,7 @@ public class CameraController : MonoBehaviour
     private Collider heldObject;
 
 
-
+    
 
 
     
@@ -36,11 +36,20 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        if (MySceneManager.instance != null)
+        { 
+            gameObject.transform.position = MySceneManager.instance.playerPos;
+        }
+
+
         //TODO Cursor visibility needs fixing
 
         //Cursor.visible = true;
         //Cursor.SetCursor(Texture2D.blackTexture, new Vector2(Screen.width / 2, Screen.height / 2), CursorMode.Auto);
+
         Cursor.lockState = CursorLockMode.Locked;
+
         //Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
 
 
@@ -117,11 +126,12 @@ public class CameraController : MonoBehaviour
                 Release();
             }
 
-            if (hit.collider.gameObject.name == "Looking part")
+            if (hit.collider != null && hit.collider.gameObject.name == "Looking part")
             {
-                SceneManager.LoadScene("MicroscopeView");
+                MySceneManager.instance.playerPos = transform.position;
+                Debug.Log("transform here");
 
-                Debug.Log("loading scene");
+                MySceneManager.instance.SwitchScene("MicroscopeView");
 
             }
         }
@@ -148,6 +158,16 @@ public class CameraController : MonoBehaviour
         // Draws a 5 unit long red line in front of the object
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * 100);
+    }
+
+
+    void SavePlayer()
+    {
+        MySceneManager.instance.playerPos = transform.position;
+
+
+
+
     }
 
 }

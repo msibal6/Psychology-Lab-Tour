@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/MicroscopeView.unity
+    guid: 7d3f567f810da4f6eb7c58f91a505073
   m_configObjects: {}
