@@ -34,7 +34,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -95,14 +95,14 @@ public class CameraController : MonoBehaviour
 
     }
 
-    void OnDrawGizmos()
-    {
-        //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Ray ray = new Ray(transform.position, cam.transform.forward);
+    // void OnDrawGizmos()
+    // {
+    //     //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+    //     Ray ray = new Ray(transform.position, cam.transform.forward);
 
-        // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(ray);
-        Gizmos.DrawRay(transform.position, cam.transform.forward * 100);
-    }
+    //     // Draws a 5 unit long red line in front of the object
+    //     Gizmos.color = Color.green;
+    //     Gizmos.DrawRay(ray);
+    //     Gizmos.DrawRay(transform.position, cam.transform.forward * 100);
+    // }
 }
