@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        //Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
 
 
     }
@@ -129,7 +129,6 @@ public class CameraController : MonoBehaviour
             if (hit.collider != null && hit.collider.gameObject.name == "Looking part")
             {
                 MySceneManager.instance.playerPos = transform.position;
-                Debug.Log("transform here");
 
                 MySceneManager.instance.SwitchScene("MicroscopeView");
 
