@@ -128,6 +128,8 @@ public class CameraController : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.name == "Looking part")
             {
+                // Saves position
+                // TODO Save slide posiitons and microscope heling 
                 MySceneManager.instance.playerPos = transform.position;
 
                 MySceneManager.instance.SwitchScene("MicroscopeView");

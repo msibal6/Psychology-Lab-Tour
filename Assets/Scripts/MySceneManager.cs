@@ -8,7 +8,7 @@ public class MySceneManager : MonoBehaviour
 {
 
     public static MySceneManager instance;
-    public Transform[] slides;
+    public Vector3[] slides;
     public Vector3 playerPos;
 
 
