@@ -1,22 +1,22 @@
 ﻿<Properties StartupConfiguration="{15363278-2607-943C-B5A8-133CDF32AB20}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SlideController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/MySceneManager.cs" Line="14" Column="31" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="96" Column="35" />
+      <File FileName="Assets/Scripts/MicroscopeController.cs" Line="32" Column="4" />
+      <File FileName="Assets/Scripts/SlideController.cs" Line="13" Column="31" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Psychology-Lab-Tour" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="MySceneManager.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
+          <Node name="Psychology-Lab-Tour" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="09cca724-49fa-4a80-b137-bb5702963769" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="efcb7ec6-381c-4975-84ce-f7477f995a9a" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
