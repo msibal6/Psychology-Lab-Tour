@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 
 
-public class RawImg : MonoBehaviour
+public class TransparencyImages : MonoBehaviour
  {
      public RawImage rawImg = null;
      public byte alpha = 255;

@@ -37,20 +37,21 @@ public class CameraController : MonoBehaviour
     void Start()
     {
 
+        // Initializes using instance after the first switch to a new scene
         if (MySceneManager.instance != null)
-        { 
+        {
             gameObject.transform.position = MySceneManager.instance.playerPos;
         }
 
 
-        //TODO Cursor visibility needs fixing
+        // TODO Cursor visibility needs fixing
 
         //Cursor.visible = true;
         //Cursor.SetCursor(Texture2D.blackTexture, new Vector2(Screen.width / 2, Screen.height / 2), CursorMode.Auto);
 
         Cursor.lockState = CursorLockMode.Locked;
 
-        Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
+        //Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
 
 
     }
@@ -59,8 +60,8 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         
-        yaw += horizontalPan * Input.GetAxis("Mouse X");
-        pitch -= verticaPan * Input.GetAxis("Mouse Y");
+        yaw += horizontalPan * Input.GetAxisRaw("Mouse X");
+        pitch -= verticaPan * Input.GetAxisRaw("Mouse Y");
         transform.position += moveSpeed * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         transform.eulerAngles = new Vector3(Mathf.Clamp(pitch,-maxVertical,maxVertical), Mathf.Clamp(yaw,-maxHorizontal,maxHorizontal));
     }
@@ -88,7 +89,7 @@ public class CameraController : MonoBehaviour
 
                 // Check if we are grabbing a slide
 
-                if (hit.collider.gameObject.tag == "Slide")
+                if (hit.collider.gameObject.CompareTag("Slide"))
                 {
                     SlideController tempSlide = hit.collider.gameObject.GetComponent<SlideController>();
                     // Is the slide in the microscope
@@ -103,7 +104,7 @@ public class CameraController : MonoBehaviour
             }
 
             // Inserting  and releasing Slide Bed if we are grabbing it
-            else if (heldObject != null && heldObject.gameObject.tag == "Slide" && hit.collider != null && hit.collider.gameObject.name == "Slide Bed")
+            else if (heldObject != null && heldObject.gameObject.CompareTag("Slide") && hit.collider != null && hit.collider.gameObject.name == "Slide Bed")
             {
                 MicroscopeController tempMicroscopeController = hit.collider.transform.parent.gameObject.GetComponent<MicroscopeController>();
 
@@ -128,8 +129,9 @@ public class CameraController : MonoBehaviour
 
             if (hit.collider != null && hit.collider.gameObject.name == "Looking part")
             {
-                MySceneManager.instance.playerPos = transform.position;
-
+                // Saves position
+                // TODO Save slide posiitons and microscope heling
+                SavePlayer();
                 MySceneManager.instance.SwitchScene("MicroscopeView");
 
             }

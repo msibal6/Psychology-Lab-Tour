@@ -6,7 +6,7 @@ public class RawImg : MonoBehaviour
  {
      public RawImage rawImg = null;
      public byte alpha = 255;
-     public void Update ()
+     public void Update2 ()
      {
          Color color;
          color = new Color32(0,0,0,alpha);
