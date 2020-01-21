@@ -8,8 +8,10 @@ public class MySceneManager : MonoBehaviour
 {
 
     public static MySceneManager instance;
-    public Transform[] slides;
+    public Vector3[] slidePos;
+    public string[] slideNames;
     public Vector3 playerPos;
+    public string placedSlide;
 
 
 

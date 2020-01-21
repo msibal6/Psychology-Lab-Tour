@@ -54,6 +54,7 @@ public class CameraController : MonoBehaviour
         //Cursor.SetCursor(Texture2D.blackTexture, Vector2.zero, CursorMode.Auto);
 
 
+
     }
 
     // Update is called once per frame
@@ -65,6 +66,7 @@ public class CameraController : MonoBehaviour
         transform.position += moveSpeed * new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         transform.eulerAngles = new Vector3(Mathf.Clamp(pitch,-maxVertical,maxVertical), Mathf.Clamp(yaw,-maxHorizontal,maxHorizontal));
     }
+
 
     void FixedUpdate()
     {
