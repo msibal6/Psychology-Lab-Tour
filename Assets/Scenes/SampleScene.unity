@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43667588, g: 0.48427194, b: 0.564524, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427135, b: 0.5645232, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,11 +133,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 78a6ee0f66f1b4f4b94110112fb2e175,
-        type: 3}
-      propertyPath: m_Name
-      value: cube room copy
-      objectReference: {fileID: 0}
     - target: {fileID: -6860895033569716450, guid: 78a6ee0f66f1b4f4b94110112fb2e175,
         type: 3}
       propertyPath: m_Enabled
@@ -213,6 +208,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 78a6ee0f66f1b4f4b94110112fb2e175,
+        type: 3}
+      propertyPath: m_Name
+      value: cube room copy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78a6ee0f66f1b4f4b94110112fb2e175, type: 3}
 --- !u!1001 &99541947
@@ -222,50 +222,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+    - target: {fileID: -7985893663718810135, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
       propertyPath: m_Name
-      value: Microscope
+      value: Blue Magnification
       objectReference: {fileID: 0}
     - target: {fileID: -7217828390678641911, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
       propertyPath: m_Name
       value: Lens
       objectReference: {fileID: 0}
-    - target: {fileID: -1303533798577211092, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Lens
-      objectReference: {fileID: 0}
-    - target: {fileID: 2845374075728546383, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Looking part
-      objectReference: {fileID: 0}
-    - target: {fileID: 8310016125541603891, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Looking part
-      objectReference: {fileID: 0}
     - target: {fileID: -6077727208183626815, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
       propertyPath: m_Name
       value: Slide Frame
-      objectReference: {fileID: 0}
-    - target: {fileID: 1766154439090108837, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Slide Pin
-      objectReference: {fileID: 0}
-    - target: {fileID: -4292809215615720832, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Slide Bed
-      objectReference: {fileID: 0}
-    - target: {fileID: -2842552063074612439, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
-        type: 3}
-      propertyPath: m_Name
-      value: Yellow Magnification
       objectReference: {fileID: 0}
     - target: {fileID: -4876355759466441678, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
@@ -277,10 +247,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Magnification
       objectReference: {fileID: 0}
-    - target: {fileID: -7985893663718810135, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+    - target: {fileID: -4292809215615720832, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
       propertyPath: m_Name
-      value: Blue Magnification
+      value: Slide Bed
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
         type: 3}
@@ -352,6 +322,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: -2842552063074612439, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Yellow Magnification
+      objectReference: {fileID: 0}
+    - target: {fileID: -1303533798577211092, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Lens
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Microscope
+      objectReference: {fileID: 0}
+    - target: {fileID: 1766154439090108837, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Slide Pin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2845374075728546383, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Looking part
+      objectReference: {fileID: 0}
+    - target: {fileID: 8310016125541603891, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
+        type: 3}
+      propertyPath: m_Name
+      value: Looking part
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c3a9f2dae8e048049a41bb3caa3bb13, type: 3}
 --- !u!1001 &162509359
@@ -361,11 +361,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 3b17c1e691a5d465b9874805de0b0df6,
-        type: 3}
-      propertyPath: m_Name
-      value: cube room
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3b17c1e691a5d465b9874805de0b0df6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -421,6 +416,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 3b17c1e691a5d465b9874805de0b0df6,
+        type: 3}
+      propertyPath: m_Name
+      value: cube room
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b17c1e691a5d465b9874805de0b0df6, type: 3}
 --- !u!1001 &192003631
@@ -438,6 +438,11 @@ PrefabInstance:
     - target: {fileID: 4508106056087800210, guid: 52eca69cd7ce34cff9e731089d2ee6fd,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508106056087800211, guid: 52eca69cd7ce34cff9e731089d2ee6fd,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4508106056087800216, guid: 52eca69cd7ce34cff9e731089d2ee6fd,
@@ -495,11 +500,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4508106056087800211, guid: 52eca69cd7ce34cff9e731089d2ee6fd,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52eca69cd7ce34cff9e731089d2ee6fd, type: 3}
 --- !u!1 &223974226 stripped
@@ -528,11 +528,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 1745cedd37b9e483ab85b91f680f0c0d,
-        type: 3}
-      propertyPath: m_Name
-      value: table
-      objectReference: {fileID: 0}
     - target: {fileID: -6145274114534416044, guid: 1745cedd37b9e483ab85b91f680f0c0d,
         type: 3}
       propertyPath: m_AABB.m_Center.z
@@ -628,6 +623,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 1745cedd37b9e483ab85b91f680f0c0d,
+        type: 3}
+      propertyPath: m_Name
+      value: table
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1745cedd37b9e483ab85b91f680f0c0d, type: 3}
 --- !u!1 &339542699 stripped
@@ -649,6 +649,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 17.152348, y: 26.418528, z: 12.541712}
   m_Center: {x: 0, y: -0.00000047683702, z: 6.2791424}
+--- !u!1 &551492350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551492351}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551492351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551492350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5762062, y: 2.6322222, z: -6.194409}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &650341570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4292809215615720832, guid: 5c3a9f2dae8e048049a41bb3caa3bb13,
@@ -757,7 +787,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -845,7 +875,7 @@ Transform:
   m_Children:
   - {fileID: 1084995370}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -1012,11 +1042,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 681caf754a7ad4c7d9ab895eaeee2c70,
-        type: 3}
-      propertyPath: m_Name
-      value: monitor
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 681caf754a7ad4c7d9ab895eaeee2c70,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1087,6 +1112,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 681caf754a7ad4c7d9ab895eaeee2c70,
+        type: 3}
+      propertyPath: m_Name
+      value: monitor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 681caf754a7ad4c7d9ab895eaeee2c70, type: 3}
 --- !u!1 &1382978076
@@ -1129,6 +1159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1506298576}
   - component: {fileID: 1506298575}
+  - component: {fileID: 1506298577}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1148,10 +1179,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2342e3b063f4ec7b46b8a792341c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slidePos: []
-  slideNames: []
+  slides: []
   playerPos: {x: 0, y: 0, z: 0}
-  placedSlide: 
 --- !u!4 &1506298576
 Transform:
   m_ObjectHideFlags: 0
@@ -1166,6 +1195,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1506298577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506298574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb6a835579f448a38f11206fd362c2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830399990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1334,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1908723761 stripped
 GameObject:
